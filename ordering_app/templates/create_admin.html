@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Admin</title>
+</head>
+<body>
+
+ <style type="text/css" scoped>
+    #centerLayer {
+     position: absolute;
+     width: 38%;
+     height: 40%;
+     left: 50%;
+     top: 50%;
+     margin-left: -20%;
+     margin-top: -15%;
+     background: #d7eb87;
+        outline: 2px solid #000;
+    }
+ </style>
+
+<h2 style="text-align: center; color: green">{{ message }}</h2>
+<h2 style="text-align: center; color: red">{{ message_password}}</h2>
+<div id="centerLayer">
+
+<form method="post" action="{% url 'create_admin' %}" style="margin-top:10px; margin-left: 30px">
+    <h2 align="center">Create Admin</h2>
+    <table cellspacing="15px">
+    <tr>
+    <td>Login:</td>
+    <td><input type="text" name="username" style="width: 300px" required></td>
+    </tr>
+
+    <tr>
+    <td>Password:</td>
+    <td><input type="password" name="password" style="width: 300px" required></td>
+    </tr>
+    <tr>
+    <td>Confirm Password:</td>
+    <td><input type="password" name="conf_password" style="width: 300px" required></td>
+    </tr>
+
+    <br>
+    </table>
+    <p style="text-align: right; margin-right: 35px"><input type="submit" value="Create Admin"></p>
+{% csrf_token %}
+</form>
+
+    </div>
+
+</body>
+</html>

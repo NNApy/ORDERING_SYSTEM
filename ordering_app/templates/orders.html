@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <style type="text/css">
+
+   th {
+
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    font-family: Comic Sans, Comic Sans MS, cursive;
+    font-size: 16px;
+    font-weight: bold;
+    height: 45px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+
+   }
+   td {
+
+       border-bottom: 1px solid #ebebeb;
+       font-family: Comic Sans, Comic Sans MS, cursive;
+       font-size: 16px;
+        padding-left: 10px;
+       height: 15px;
+       text-align: left;
+
+   }
+
+        A {
+    text-decoration: none;
+    font-weight: bold;
+        }
+   A:hover {
+    text-decoration: none;
+
+   }
+
+  </style>
+
+
+
+</head>
+<body>
+
+<div style="margin: 15px" >
+<p><a href=""><h1 style="text-align: center">ORDERS FOR {{ date }}</h1></a></p>
+<br>
+
+<table align="center" width="80%">
+    <tr>
+
+        <th>BUY</th>
+        <th>CUSTOMER</th>
+        <th>E-MAIL</th>
+        <th style = "width: 10%">BYN</th>
+        <th style = "width: 10%">BYR</th>
+        <th>COMMENTS</th>
+    </tr>
+    {% for i in orders_data.values %}
+    <tr>
+            <td>
+                <a href="{% url 'edit' %}?id={{ i.id }}">{{ i.buy }}</a>
+            </td>
+        <td>{{ i.customer }}</td>
+        <td>{{ i.email }}</td>
+        <td style="text-align: center">{{ i.byn }}</td>
+        <td style="text-align: center">{{ i.byr }}</td>
+            <td>
+            {{ i.comment }}
+                </td>
+    {% endfor %}
+    <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>Total BYN</td>
+        <td>{{ byn }}</td>
+    </tr>
+    <tr>
+        <td>Total BYR</td>
+        <td>{{ byr }}</td>
+    </tr>
+    <tr>
+        <td>Total summ (BYN)</td>
+        <td>{{ total_summ }}</td>
+    </tr>
+
+</table>
+</div>
+</body>
+</html>

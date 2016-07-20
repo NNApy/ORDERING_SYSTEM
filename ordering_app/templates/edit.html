@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit </title>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Order {{ edit_data.buy }}</title>
+</head>
+<body>
+
+ <style type="text/css" scoped>
+    #centerLayer {
+     position: absolute;
+     width: 38%;
+     height: 60%;
+     left: 50%;
+     top: 50%;
+     margin-left: -20%;
+     margin-top: -20%;
+     background: #d7eb87;
+        outline: 2px solid #000;
+    }
+ </style>
+
+<div id="centerLayer">
+
+<form method="post" action="{% url 'edit' %}" style="margin-top:10px; margin-left: 30px">
+    <h2 align="center">Edit Order {{ edit_data.buy }}</h2>
+    <table cellspacing="15px">
+    <tr>
+    <td>Your Name:</td>
+    <td><input type="text" name="customer" value="{{ edit_data.customer }}" style="width: 300px" required></td>
+    </tr>
+
+    <tr>
+    <td>Your Email:</td>
+    <td><input type="text" name="email" value="{{ edit_data.email }}" style="width: 300px" required></td>
+    </tr>
+
+
+    <tr>
+    <td>Your Buy:</td>
+    <td><input type="text" name="buy" value="{{ edit_data.buy }}" style="width: 300px" required></td>
+    </tr>
+
+    <tr>
+    <td>BYR:</td>
+    <td><input type="text" name="byr" value="{{ edit_data.byr }}" style="width: 70px" required></td>
+    </tr>
+
+    <tr>
+    <td>BYN:</td>
+    <td><input type="text" name="byn" value="{{ edit_data.byn }}" style="width: 70px" required></td>
+    </tr>
+
+    <tr>
+    <td>Comment:</td>
+    <td><textarea name="comment" style="width: 300px" required>{{ edit_data.comment }}</textarea></td>
+    </tr>
+
+    <br>
+    <tr>
+    <td><a href="{% url 'del' %}?id={{ edit_data.id }}">Delete this order</a></td>
+    <td style="text-align: right; margin-right: 35px"><input type="submit" value="Save Changes"></td>
+    <tr>
+    </table>
+{% csrf_token %}
+    <input type="hidden" name="id" value="{{ edit_data.id }}">
+</form>
+
+
+
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>
