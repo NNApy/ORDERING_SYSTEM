@@ -126,7 +126,7 @@ def delete(request):
 
 
 
-@login_required(login_url='/accounts/login/')
+@login_required()
 def orders(request):
     if request.user.is_superuser == 1:
         byn = 0
